@@ -35,3 +35,5 @@ target_link_libraries(${TARGET_NAME}
                       PRIVATE ftxui::screen
                       PRIVATE ftxui::dom
                       PRIVATE ftxui::component)
+
+target_include_directories(${TARGET_NAME} PUBLIC include)
