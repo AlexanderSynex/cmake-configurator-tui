@@ -1,2 +1,3 @@
-# tg-tui
-A tui-client for Telegram
+# CMake Configurator TUI
+
+Конфигуратор проекта для CMake
