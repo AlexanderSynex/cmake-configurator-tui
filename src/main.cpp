@@ -15,7 +15,7 @@ main (int argc, char *argv[])
 {
   auto project_name_box = snx::ProjectNameBox{};
 
-  auto container = Container::Vertical ({ project_name_box.input_field () });
+  auto container = Container::Vertical ({ project_name_box.component () });
 
   auto renderer = Renderer (container, [&] {
     return vbox (text ("Configurator") | flex | center,

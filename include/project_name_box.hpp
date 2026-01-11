@@ -1,5 +1,6 @@
 #pragma once
 
+#include "control_box.hpp"
 #include "placholders.hpp"
 #include <cctype>
 #include <cwctype>
@@ -11,7 +12,7 @@
 
 namespace snx
 {
-struct ProjectNameBox
+struct ProjectNameBox : public ControlBox
 {
 public:
   ProjectNameBox ()
@@ -27,15 +28,15 @@ public:
     });
   }
   ftxui::Component &
-  input_field ()
+  component () override
   {
     return input;
   }
 
   ftxui::Element
-  operator() ()
+  operator() () const override
   {
-    return ftxui::hbox (ftxui::text ("Project name "), input->Render ());
+    return ftxui::vbox (ftxui::text ("Project name"), input->Render ());
   }
 
   std::string
@@ -54,6 +55,7 @@ public:
 
 private:
   std::string project_name = {};
-  ftxui::Component input = ftxui::Input (&project_name, snx::placeholders::project_name);
+  ftxui::Component input
+      = ftxui::Input (&project_name, snx::placeholders::project_name);
 };
 }
