@@ -1,5 +1,6 @@
 #pragma once
 
+#include "placholders.hpp"
 #include <cctype>
 #include <cwctype>
 #include <ftxui/component/component.hpp>
@@ -12,9 +13,6 @@ namespace snx
 {
 struct ProjectNameBox
 {
-private:
-  static constexpr auto placeholder = "my_project";
-
 public:
   ProjectNameBox ()
   {
@@ -44,12 +42,18 @@ public:
   name () const
   {
     if (project_name.empty ())
-      return placeholder;
+      return snx::placeholders::project_name;
+    return project_name;
+  }
+
+  const std::string &
+  ref ()
+  {
     return project_name;
   }
 
 private:
   std::string project_name = {};
-  ftxui::Component input = ftxui::Input (&project_name, placeholder);
+  ftxui::Component input = ftxui::Input (&project_name, snx::placeholders::project_name);
 };
 }

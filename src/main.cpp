@@ -19,7 +19,9 @@ main (int argc, char *argv[])
 
   auto renderer = Renderer (container, [&] {
     return vbox (text ("Configurator") | flex | center,
-                 snx::InfoBox{ fs::current_path ().string () }() | border,
+                 snx::InfoBox{ fs::current_path ().string (),
+                               project_name_box.ref () }()
+                     | border,
                  gridbox ({ { project_name_box () } }) | flex | border);
   });
 
