@@ -18,7 +18,8 @@ struct InfoBox
   ftxui::Element
   operator() ()
   {
-    return ftxui::vbox (ftxui::hbox (ftxui::text ("Project path: "),
+    return ftxui::vbox (ftxui::text ("Settings") | ftxui::center | ftxui::flex,
+                        ftxui::hbox (ftxui::text ("Project path: "),
                                      ftxui::text (path ()) | ftxui::bold));
   }
 
