@@ -1,6 +1,6 @@
-#include "info_box.hpp"
-#include "project_name_box.hpp"
-#include "project_type_box.hpp"
+#include "tui/info_box.hpp"
+#include "tui/project_name_box.hpp"
+#include "tui/project_type_box.hpp"
 #include <filesystem>
 #include <ftxui/component/component.hpp>
 #include <ftxui/component/component_options.hpp>
@@ -10,6 +10,11 @@
 
 using namespace ftxui;
 namespace fs = std::filesystem;
+
+auto
+declare_tui () -> decltype (auto)
+{
+}
 
 int
 main (int argc, char *argv[])
@@ -30,8 +35,8 @@ main (int argc, char *argv[])
               gridbox ({ { project_name_box () }, { build_system_box () } }))
             | flex | border);
   });
-
-  auto s = ScreenInteractive::Fullscreen ();
+  // return std::pair{ std::move (container), std::move (renderer) };
+    auto s = ScreenInteractive::Fullscreen ();
   s.Loop (renderer);
   s.Clear ();
   return 0;

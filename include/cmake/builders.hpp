@@ -12,7 +12,7 @@ namespace cmake
 {
 namespace builders
 {
-struct BuildSystem
+struct Executable
 {
 private:
   static std::optional<std::set<std::string>>
@@ -42,12 +42,6 @@ private:
     return { folders };
   }
 
-//   static std::optional<std::string>
-//   find_executable_in_folder (std::string_view folder,
-//                              std::string_view executable)
-//   {
-//   }
-
   static std::optional<std::string>
   file_in_path (std::string_view target)
   {
@@ -71,12 +65,13 @@ private:
   }
 
 public:
-  BuildSystem (std::string_view name, std::string_view executable)
+  Executable (std::string_view name, std::string_view executable)
   {
     assert (file_in_path (executable).has_value ());
+
   }
 
-  virtual ~BuildSystem () = default;
+  virtual ~Executable () = default;
 
 private:
   std::string path = {};
