@@ -32,8 +32,8 @@ set(TARGET_NAME ${PROJECT_NAME}_client)
 add_executable(${TARGET_NAME} src/main.cpp)
 
 target_link_libraries(${TARGET_NAME}
-                      PRIVATE ftxui::screen
-                      PRIVATE ftxui::dom
-                      PRIVATE ftxui::component)
+                      PUBLIC ftxui::screen
+                      PUBLIC ftxui::dom
+                      PUBLIC ftxui::component)
 
 target_include_directories(${TARGET_NAME} PUBLIC include)
